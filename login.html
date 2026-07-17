@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container d-flex align-items-center py-4 bg-body-tertiary justify-content-center">
+    <main class="form-signin w-100 m-auto">
+        <form style="max-width: 400px; margin:30px" method="post">
+            <h1 class="h3 mb-3 fw-normal text-center">Stark<span class="text-danger">News</span> — შესვლა</h1>
+
+            <div class="form-floating mb-2">
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="name@example.com"
+                    required
+                >
+                <label for="email">ელფოსტა</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                >
+                <label for="password">პაროლი</label>
+            </div>
+
+            {% if message %}
+            <p class="text-danger">{{ message }}</p>
+            {% endif %}
+
+            <button class="btn btn-danger w-100 py-2" type="submit">
+                შესვლა
+            </button>
+            <p class="text-center mt-3">არ გაქვს ანგარიში? <a href="/register">დარეგისტრირდი</a></p>
+        </form>
+    </main>
+</div>
+{% endblock %}

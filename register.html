@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container d-flex align-items-center py-4 bg-body-tertiary justify-content-center">
+    <main class="form-signin w-100 m-auto">
+        <form style="max-width: 500px; margin:30px" method="post">
+            <h1 class="h3 mb-3 fw-normal text-center">Stark<span class="text-danger">News</span> — რეგისტრაცია</h1>
+
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                <label for="email">ელფოსტა</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <label for="password">პაროლი</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="username" name="username" placeholder="CoolUser78" required>
+                <label for="username">იუზერნეიმი</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="name" name="name" placeholder="გიორგი" required>
+                <label for="name">სახელი</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="გიორგაძე" required>
+                <label for="lastname">გვარი</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="img_url"
+                    name="img_url"
+                    placeholder="https://example.com/profile.png"
+                >
+                <label for="img_url">პროფილის ფოტოს ბმული (არასავალდებულო)</label>
+            </div>
+
+            {% if message %}
+            <p class="text-danger">{{ message }}</p>
+            {% endif %}
+
+            <button class="btn btn-danger w-100 py-2" type="submit">
+                რეგისტრაცია
+            </button>
+            <p class="text-center mt-3">უკვე გაქვს ანგარიში? <a href="/login">შესვლა</a></p>
+        </form>
+    </main>
+</div>
+{% endblock %}

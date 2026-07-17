@@ -1,0 +1,13 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.form-control-dark {
+    background-color: #212529;
+    border-color: #495057;
+    color: #fff;
+}
+
+.form-control-dark::placeholder {
+    color: #adb5bd;
+}

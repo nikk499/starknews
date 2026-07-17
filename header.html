@@ -1,0 +1,39 @@
+<header class="p-3 text-bg-dark border-bottom border-danger">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-3">
+                <span class="fs-3 fw-bold">Stark<span class="text-danger">News</span></span>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a href="/" class="nav-link px-2 text-white">მთავარი</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li>
+                    <a href="/add_news" class="nav-link px-2 text-white">სიახლის დამატება</a>
+                </li>
+                <li>
+                    <a href="/mynews" class="nav-link px-2 text-white">ჩემი სიახლეები</a>
+                </li>
+                {% endif %}
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input
+                    type="search"
+                    class="form-control form-control-dark text-bg-dark"
+                    placeholder="ძიება..."
+                    aria-label="Search"
+                >
+            </form>
+            {% if current_user.is_authenticated %}
+                {% include 'header_authenticated.html' %}
+            {% else %}
+                {% include 'header_login.html' %}
+            {% endif %}
+
+        </div>
+    </div>
+</header>

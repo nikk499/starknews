@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+    {% if not article %}
+        <p class="text-muted">სიახლე ვერ მოიძებნა.</p>
+    {% else %}
+    <div class="row">
+        <div class="col-md-7">
+            <img src="{{ article.img_url or 'https://cdn-icons-png.flaticon.com/512/2965/2965300.png' }}" class="img-fluid rounded" alt="{{ article.title }}">
+        </div>
+        <div class="col-md-5">
+            <h1>{{ article.title }}</h1>
+            <p class="text-muted">
+                ავტორი: {% if article.author %}{{ article.author.username }}{% endif %} · {{ article.date }}
+            </p>
+            <p>{{ article.content }}</p>
+
+            <div class="d-flex align-items-center gap-2 mb-3">
+                {% if current_user.is_authenticated %}
+                <form method="get" action="/like/{{ article.id }}">
+                    <button type="submit" class="btn {{ 'btn-danger' if liked else 'btn-outline-danger' }}">
+                        {{ '❤ მოწონებულია' if liked else '♡ მოწონება' }}
+                    </button>
+                </form>
+                {% endif %}
+                <span class="badge text-bg-danger">{{ article.likes_count }} მოწონება</span>
+            </div>
+
+            {% if current_user.is_authenticated and article.author_id == current_user.id %}
+            <div class="d-flex gap-2">
+                <a href="/edit_news/{{ article.id }}" class="btn btn-outline-secondary">რედაქტირება</a>
+                <a href="/delete_news/{{ article.id }}" class="btn btn-outline-danger" onclick="return confirm('დარწმუნებული ხარ, რომ გსურს წაშლა?')">წაშლა</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

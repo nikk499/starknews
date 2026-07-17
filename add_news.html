@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card p-4 shadow-sm" style="max-width: 600px; width: 100%;">
+        <h1 class="h3 mb-4">ახალი ამბის დამატება</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">სათაური</label>
+                <input type="text" class="form-control" name="title" id="title" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ტექსტი</label>
+                <textarea class="form-control" name="content" id="content" rows="6" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ფოტოს ბმული</label>
+                <input type="text" class="form-control" name="img_url" id="img_url" placeholder="https://example.com/photo.jpg">
+            </div>
+
+            {% if message %}
+            <p class="text-danger">{{ message }}</p>
+            {% endif %}
+
+            <button type="submit" class="btn btn-danger w-100">გამოქვეყნება</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

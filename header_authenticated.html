@@ -1,0 +1,37 @@
+<div class="dropdown text-end">
+    <a
+        href="#"
+        class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+    >
+        <img
+            src="{{ current_user.profile_url or 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}"
+            alt="{{ current_user.username }}"
+            width="32"
+            height="32"
+            class="rounded-circle"
+        >
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end text-small">
+        <li>
+            <span class="dropdown-item-text text-muted">{{ current_user.name }} {{ current_user.surname }}</span>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" href="/add_news">სიახლის დამატება</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="/mynews">ჩემი სიახლეები</a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" href="/logout">გასვლა</a>
+        </li>
+    </ul>
+</div>

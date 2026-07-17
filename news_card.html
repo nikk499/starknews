@@ -1,0 +1,16 @@
+<div class="card h-100 shadow-sm">
+    <img src="{{ article.img_url or 'https://cdn-icons-png.flaticon.com/512/2965/2965300.png' }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="{{ article.title }}">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <p class="card-text text-muted small">
+            {{ article.content[:120] }}{% if article.content|length > 120 %}...{% endif %}
+        </p>
+        <div class="mt-auto d-flex justify-content-between align-items-center">
+            <span class="text-muted small">
+                {% if article.author %}{{ article.author.username }}{% endif %} · {{ article.date }}
+            </span>
+            <span class="badge text-bg-danger">❤ {{ article.likes_count }}</span>
+        </div>
+        <a href="/news/{{ article.id }}" class="btn btn-outline-dark mt-2">სრულად ნახვა</a>
+    </div>
+</div>
